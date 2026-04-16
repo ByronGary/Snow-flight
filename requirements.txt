@@ -1,0 +1,7 @@
+flask
+pandas
+requests
+requests-cache
+retry-requests
+openmeteo-requests
+pgeocode

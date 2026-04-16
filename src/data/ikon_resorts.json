@@ -1,0 +1,572 @@
+[
+  {
+    "name": "Aspen Snowmass",
+    "latitude": 39.2089,
+    "longitude": -106.9496,
+    "country": "US",
+    "state": "CO",
+    "airport": "ASE",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Steamboat",
+    "latitude": 40.485,
+    "longitude": -106.8317,
+    "country": "US",
+    "state": "CO",
+    "airport": "HDN",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Copper Mountain",
+    "latitude": 39.5028,
+    "longitude": -106.151,
+    "country": "US",
+    "state": "CO",
+    "airport": "DEN",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Winter Park",
+    "latitude": 39.8875,
+    "longitude": -105.7621,
+    "country": "US",
+    "state": "CO",
+    "airport": "DEN",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Arapahoe Basin",
+    "latitude": 39.6424,
+    "longitude": -105.8717,
+    "country": "US",
+    "state": "CO",
+    "airport": "DEN",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Taos Ski Valley",
+    "latitude": 36.5946,
+    "longitude": -105.4494,
+    "country": "US",
+    "state": "NM",
+    "airport": "ABQ",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Deer Valley Resort",
+    "latitude": 40.637,
+    "longitude": -111.478,
+    "country": "US",
+    "state": "UT",
+    "airport": "SLC",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Snowbird",
+    "latitude": 40.5834,
+    "longitude": -111.6543,
+    "country": "US",
+    "state": "UT",
+    "airport": "SLC",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Alta Ski Area",
+    "latitude": 40.5884,
+    "longitude": -111.6389,
+    "country": "US",
+    "state": "UT",
+    "airport": "SLC",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Solitude Mountain",
+    "latitude": 40.6199,
+    "longitude": -111.593,
+    "country": "US",
+    "state": "UT",
+    "airport": "SLC",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Brighton Resort",
+    "latitude": 40.5982,
+    "longitude": -111.5835,
+    "country": "US",
+    "state": "UT",
+    "airport": "SLC",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Mammoth Mountain",
+    "latitude": 37.6305,
+    "longitude": -119.033,
+    "country": "US",
+    "state": "CA",
+    "airport": "MMH",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "June Mountain",
+    "latitude": 37.769,
+    "longitude": -119.0735,
+    "country": "US",
+    "state": "CA",
+    "airport": "MMH",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Palisades Tahoe",
+    "latitude": 39.1976,
+    "longitude": -120.2358,
+    "country": "US",
+    "state": "CA",
+    "airport": "RNO",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Bear Valley",
+    "latitude": 38.4642,
+    "longitude": -120.0425,
+    "country": "US",
+    "state": "CA",
+    "airport": "SMF",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Jackson Hole",
+    "latitude": 43.5876,
+    "longitude": -110.8271,
+    "country": "US",
+    "state": "WY",
+    "airport": "JAC",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Big Sky Resort",
+    "latitude": 45.2871,
+    "longitude": -111.4019,
+    "country": "US",
+    "state": "MT",
+    "airport": "BZN",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Killington",
+    "latitude": 43.6626,
+    "longitude": -72.7957,
+    "country": "US",
+    "state": "VT",
+    "airport": "BTV",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Pico Mountain",
+    "latitude": 43.6278,
+    "longitude": -72.8278,
+    "country": "US",
+    "state": "VT",
+    "airport": "BTV",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Sugarbush",
+    "latitude": 44.0206,
+    "longitude": -72.9809,
+    "country": "US",
+    "state": "VT",
+    "airport": "BTV",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Stratton",
+    "latitude": 43.0843,
+    "longitude": -72.9116,
+    "country": "US",
+    "state": "VT",
+    "airport": "ALB",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Loon Mountain",
+    "latitude": 44.034,
+    "longitude": -71.6861,
+    "country": "US",
+    "state": "NH",
+    "airport": "MHT",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Sugarloaf",
+    "latitude": 45.0314,
+    "longitude": -70.3134,
+    "country": "US",
+    "state": "ME",
+    "airport": "PWM",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Sunday River",
+    "latitude": 44.4752,
+    "longitude": -70.8551,
+    "country": "US",
+    "state": "ME",
+    "airport": "PWM",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Crystal Mountain",
+    "latitude": 46.9338,
+    "longitude": -121.4739,
+    "country": "US",
+    "state": "WA",
+    "airport": "SEA",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Mt. Bachelor",
+    "latitude": 43.9791,
+    "longitude": -121.6882,
+    "country": "US",
+    "state": "OR",
+    "airport": "RDM",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Boyne Mountain",
+    "latitude": 45.1707,
+    "longitude": -84.9233,
+    "country": "US",
+    "state": "MI",
+    "airport": "TVC",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Boyne Highlands",
+    "latitude": 45.3707,
+    "longitude": -84.9247,
+    "country": "US",
+    "state": "MI",
+    "airport": "TVC",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Revelstoke Mountain",
+    "latitude": 50.986,
+    "longitude": -118.195,
+    "country": "CA",
+    "province": "BC",
+    "airport": "YLW",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Kicking Horse",
+    "latitude": 51.2979,
+    "longitude": -117.8007,
+    "country": "CA",
+    "province": "BC",
+    "airport": "YYC",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Panorama Mountain",
+    "latitude": 50.3988,
+    "longitude": -116.215,
+    "country": "CA",
+    "province": "BC",
+    "airport": "YXC",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Fernie Alpine Resort",
+    "latitude": 49.5021,
+    "longitude": -115.0743,
+    "country": "CA",
+    "province": "BC",
+    "airport": "YXC",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Sun Peaks Resort",
+    "latitude": 50.886,
+    "longitude": -119.886,
+    "country": "CA",
+    "province": "BC",
+    "airport": "YKA",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Lake Louise",
+    "latitude": 51.4414,
+    "longitude": -116.1759,
+    "country": "CA",
+    "province": "AB",
+    "airport": "YYC",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Sunshine Village",
+    "latitude": 51.122,
+    "longitude": -115.676,
+    "country": "CA",
+    "province": "AB",
+    "airport": "YYC",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Banff Norquay",
+    "latitude": 51.2037,
+    "longitude": -115.5919,
+    "country": "CA",
+    "province": "AB",
+    "airport": "YYC",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Blue Mountain",
+    "latitude": 44.5031,
+    "longitude": -80.3148,
+    "country": "CA",
+    "province": "ON",
+    "airport": "YYZ",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Mont-Tremblant",
+    "latitude": 46.1183,
+    "longitude": -74.5876,
+    "country": "CA",
+    "province": "QC",
+    "airport": "YUL",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Niseko United",
+    "latitude": 42.8021,
+    "longitude": 140.687,
+    "country": "JP",
+    "province": "Hokkaido",
+    "airport": "CTS",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Hakuba Valley",
+    "latitude": 36.6985,
+    "longitude": 137.8573,
+    "country": "JP",
+    "province": "Nagano",
+    "airport": "NRT",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Thredbo",
+    "latitude": -36.5014,
+    "longitude": 148.2981,
+    "country": "AU",
+    "province": "NSW",
+    "airport": "CBR",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Falls Creek",
+    "latitude": -36.8686,
+    "longitude": 147.2744,
+    "country": "AU",
+    "province": "VIC",
+    "airport": "MEL",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Mt. Buller",
+    "latitude": -37.1514,
+    "longitude": 146.4394,
+    "country": "AU",
+    "province": "VIC",
+    "airport": "MEL",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Mt. Hotham",
+    "latitude": -36.9909,
+    "longitude": 147.1633,
+    "country": "AU",
+    "province": "VIC",
+    "airport": "MEL",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Coronet Peak",
+    "latitude": -45.0131,
+    "longitude": 168.7237,
+    "country": "NZ",
+    "province": "Otago",
+    "airport": "ZQN",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "The Remarkables",
+    "latitude": -45.1164,
+    "longitude": 168.8233,
+    "country": "NZ",
+    "province": "Otago",
+    "airport": "ZQN",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Mt. Hutt",
+    "latitude": -43.4976,
+    "longitude": 171.5521,
+    "country": "NZ",
+    "province": "Canterbury",
+    "airport": "CHC",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Cardrona",
+    "latitude": -44.8707,
+    "longitude": 169.0067,
+    "country": "NZ",
+    "province": "Otago",
+    "airport": "ZQN",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Treble Cone",
+    "latitude": -44.6227,
+    "longitude": 169.1381,
+    "country": "NZ",
+    "province": "Otago",
+    "airport": "ZQN",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Valle Nevado",
+    "latitude": -33.3577,
+    "longitude": -70.2856,
+    "country": "CL",
+    "province": "Santiago",
+    "airport": "SCL",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "El Colorado",
+    "latitude": -33.3523,
+    "longitude": -70.2763,
+    "country": "CL",
+    "province": "Santiago",
+    "airport": "SCL",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "La Parva",
+    "latitude": -33.3396,
+    "longitude": -70.3059,
+    "country": "CL",
+    "province": "Santiago",
+    "airport": "SCL",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Catedral Alta Patagonia",
+    "latitude": -41.1569,
+    "longitude": -71.4494,
+    "country": "AR",
+    "province": "R\u00edo Negro",
+    "airport": "BRC",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Grandvalira",
+    "latitude": 42.5422,
+    "longitude": 1.7131,
+    "country": "AD",
+    "province": "Andorra",
+    "airport": "BCN",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "\u00c5re",
+    "latitude": 63.399,
+    "longitude": 13.0806,
+    "country": "SE",
+    "province": "J\u00e4mtland",
+    "airport": "OSD",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "S\u00e4len (SkiStar)",
+    "latitude": 61.1578,
+    "longitude": 13.2724,
+    "country": "SE",
+    "province": "Dalarna",
+    "airport": "MXX",
+    "pass": "ikon",
+    "conditions_id": null
+  },
+  {
+    "name": "Trysil",
+    "latitude": 61.335,
+    "longitude": 12.268,
+    "country": "NO",
+    "province": "Innlandet",
+    "airport": "OSL",
+    "pass": "ikon",
+    "conditions_id": null
+  }
+]
