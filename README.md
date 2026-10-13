@@ -3,20 +3,35 @@
 Snow forecasts and Google Flights searches for Ikon and Epic pass resorts (99 resorts in 14 countries), plus a daily Discord **powder alert** when a resort you watch is about to get dumped on.
 
 - **Web app** (React): opens on a **powder board** ranking your pass's resorts by forecast snow over the next 5 days. Pick a resort and enter your home ZIP to get its forecast, season snowfall, and one-click Google Flights searches from every airport near you, into each of the resort's arrival airports (e.g. Vail: Eagle, then Denver).
-- **Powder alerts**: a daily job checks the forecast for your watched resorts and posts to a Discord channel when one crosses your threshold. Each post includes flight links for the night before the big day.
+- **Powder alerts**: a daily job (cron on your machine, or a Kubernetes CronJob) checks the forecast for your watched resorts and posts to a Discord channel when one crosses your threshold. Each post includes flight links for the night before the big day.
 
-## Quick start
+## Run it locally
 
-Requires Python 3.12+ and Node 24+.
+Everything runs on your own machine with Python 3.12+ and Node 24+. Docker and Kubernetes are optional, for hosting it somewhere (see [Hosting](#hosting-optional-docker-or-kubernetes)).
 
 ```bash
-python -m venv .venv
-make install            # pip install -r requirements-dev.txt && npm ci
-make build              # build the React app into frontend/dist
-make dev-api            # Flask on http://localhost:8000 (serves the built app + /api)
+python3 -m venv .venv
+make install            # Python and frontend dependencies
+make dev                # React UI with hot reload: http://localhost:5173
 ```
 
-For frontend work, run `make dev-api` and `make dev-web` side by side. `dev-web` starts Vite with hot reload on http://localhost:5173 and proxies `/api` to Flask. If port 8000 is taken, pass the same port to both, e.g. `make dev-api API_PORT=8010` and `make dev-web API_PORT=8010`.
+`make dev` starts the Flask API on port 8010 and the Vite dev server on port 5173, which forwards `/api` requests to Flask. Ctrl+C stops both.
+
+| Command | What runs | Open |
+|---|---|---|
+| `make dev` | React dev server (hot reload) + Flask API | http://localhost:5173 |
+| `make serve` | Builds the app, then Flask serves it alone (no Node process) | http://localhost:8010 |
+
+To use a different API port, pass `API_PORT`, e.g. `make dev API_PORT=8020`.
+
+## Use it on your iPhone (no App Store)
+
+The web app can be installed from Safari, so you don't need the App Store, Xcode or a developer account:
+
+1. Open the hosted site in **Safari** on the iPhone. It needs to be on an HTTPS address the phone can reach.
+2. Tap **Share**, then **Add to Home Screen**.
+
+It gets the snowflake icon and opens full screen, like a native app. Safari also shows a short hint about this, which you can dismiss. The install support comes from `frontend/public/manifest.webmanifest`, the PNG icons beside it, and the Apple meta tags in `frontend/index.html`.
 
 ## Tests
 
@@ -89,8 +104,9 @@ Seasons run from Oct 1 to Jun 30 in the northern hemisphere and from Apr 1 to No
 2. Copy [config/alerts.example.yaml](config/alerts.example.yaml). Set your home airports or ZIP, the thresholds (inches in a single day and/or over the window), and the resort slugs to watch. Slugs are listed by `GET /api/resorts`.
 3. Try it out:
    ```bash
-   PYTHONPATH=src python -m snow_flights alerts --config my-alerts.yaml --dry-run    # print, don't send
-   DISCORD_WEBHOOK_URL=... PYTHONPATH=src python -m snow_flights alerts --config my-alerts.yaml --test-notify
+   make alerts-dry-run ALERTS_CONFIG=my-alerts.yaml       # print the digest, send nothing
+   DISCORD_WEBHOOK_URL=... PYTHONPATH=src .venv/bin/python -m snow_flights alerts --config my-alerts.yaml --test-notify
+   DISCORD_WEBHOOK_URL=... make alerts ALERTS_CONFIG=my-alerts.yaml   # real run
    ```
 
 Alert behaviour:
@@ -100,7 +116,31 @@ Alert behaviour:
 
 The notifier interface (`Notifier` in [src/snow_flights/alerts/notifiers.py](src/snow_flights/alerts/notifiers.py)) is ready for an SMS backend; see the [roadmap](#roadmap).
 
-## Deploy
+### Running alerts daily without Kubernetes
+
+1. Put the webhook in a `.env` file, which is gitignored:
+   ```bash
+   DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...
+   ```
+2. Add a cron entry with `crontab -e`:
+   ```cron
+   0 6 * * * cd /path/to/snow-flights && set -a && . ./.env && set +a && make alerts ALERTS_CONFIG=my-alerts.yaml >> alerts.log 2>&1
+   ```
+
+Cron only runs while the machine is on. On WSL, start it first with `sudo service cron start`.
+
+## Hosting (optional): Docker or Kubernetes
+
+You don't need either to use the app; they're for running it on a server.
+
+**Docker only:**
+
+```bash
+docker build -t snow-flights .
+docker run -p 8000:8000 snow-flights      # http://localhost:8000
+```
+
+**Kubernetes** (the web app plus the daily alert job):
 
 ```bash
 docker build -t your-registry/snow-flights:$(git rev-parse --short HEAD) .

@@ -162,3 +162,34 @@ test("the page never scrolls sideways", async ({ page }) => {
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   expect(overflow).toBe(0);
 });
+
+test.describe("iPhone home screen install", () => {
+  test.use({
+    userAgent:
+      "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1",
+  });
+
+  test("the app is installable and explains how", async ({ page, request }) => {
+    await page.goto("/");
+    await expect(page.locator('link[rel="manifest"]')).toHaveAttribute("href", "/manifest.webmanifest");
+    await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute("href", "/apple-touch-icon.png");
+
+    const manifest = await request.get("/manifest.webmanifest");
+    expect(manifest.headers()["content-type"]).toContain("application/manifest+json");
+    const body = await manifest.json();
+    expect(body.display).toBe("standalone");
+    for (const src of [...body.icons.map((i: { src: string }) => i.src), "/apple-touch-icon.png"]) {
+      const icon = await request.get(src);
+      expect(icon.status(), src).toBe(200);
+      expect(icon.headers()["content-type"]).toBe("image/png");
+    }
+
+    const hint = page.getByRole("complementary", { name: "Install on your iPhone" });
+    await expect(hint).toContainText("Add to Home Screen");
+    await hint.getByRole("button", { name: "Dismiss" }).click();
+    await expect(hint).toHaveCount(0);
+    await page.reload();
+    await expect(page.getByRole("combobox", { name: "Resort" })).toBeVisible();
+    await expect(hint).toHaveCount(0);
+  });
+});
