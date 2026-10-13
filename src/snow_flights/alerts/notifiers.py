@@ -70,7 +70,7 @@ def build_embed(cfg: AlertConfig, hit: PowderHit, generated_at: str) -> dict:
         "color": EMBED_COLOR,
         "description": f'Biggest day: {peak_day:%a %b} {peak_day.day}, {peak_snow:g}"',
         "fields": [{"name": "Forecast", "value": _truncate(f"```\n{forecast}\n```", MAX_FIELD_CHARS)}],
-        "footer": {"text": "Open-Meteo forecast"},
+        "footer": {"text": "Weather data by Open-Meteo.com (CC BY 4.0)"},
         "timestamp": generated_at,
     }
     url = app_link(cfg, hit)

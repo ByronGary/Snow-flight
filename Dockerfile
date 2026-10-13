@@ -23,6 +23,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
+COPY LICENSE THIRD_PARTY_NOTICES.md ./
 COPY src/ ./src/
 COPY --from=web /repo/frontend/dist ./static
 

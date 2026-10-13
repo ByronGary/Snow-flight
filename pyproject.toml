@@ -4,6 +4,7 @@ version = "0.2.0"
 description = "Ski resort weather, powder alerts, and Google Flights search for Ikon and Epic pass holders."
 requires-python = ">=3.12"
 license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
 # Dependencies are pinned in requirements.txt / requirements-dev.txt.
 
 [tool.pytest.ini_options]

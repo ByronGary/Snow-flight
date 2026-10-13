@@ -117,6 +117,10 @@ a {
   margin-top: 24px;
 }
 
+.site-footer p {
+  margin: 4px 0;
+}
+
 /* ── Install hint (iPhone Safari) ── */
 .install-hint {
   display: flex;

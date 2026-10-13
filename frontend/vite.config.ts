@@ -11,6 +11,8 @@ export default defineConfig({
   build: {
     outDir: "dist",
     assetsInlineLimit: 0,
+    // Full license texts of every bundled dependency, linked from the app footer.
+    license: { fileName: "third-party-licenses.txt" },
   },
   test: {
     environment: "jsdom",

@@ -45,3 +45,14 @@ def test_coordinates_in_range():
 def test_hemisphere():
     assert RESORTS_BY_SLUG["thredbo"].hemisphere == "south"
     assert RESORTS_BY_SLUG["vail"].hemisphere == "north"
+
+
+def test_license_and_attribution_files():
+    from pathlib import Path
+
+    root = Path(__file__).parents[1]
+    assert (root / "LICENSE").read_text().startswith("MIT License")
+    notices = (root / "THIRD_PARTY_NOTICES.md").read_text()
+    for needed in ("Open-Meteo", "GeoNames", "OurAirports", "CC BY 4.0", "us_zip_centroids.csv", "airports.csv",
+                   "non-commercial"):
+        assert needed in notices, needed
