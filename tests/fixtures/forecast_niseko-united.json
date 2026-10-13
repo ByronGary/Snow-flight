@@ -1,0 +1,97 @@
+{
+ "latitude": 42.7768,
+ "longitude": 140.72485,
+ "generationtime_ms": 0.4285573959350586,
+ "utc_offset_seconds": 32400,
+ "timezone": "Asia/Tokyo",
+ "timezone_abbreviation": "GMT+9",
+ "elevation": 128.0,
+ "current_units": {
+  "time": "iso8601",
+  "interval": "seconds",
+  "temperature_2m": "\u00b0F",
+  "is_day": "",
+  "snowfall": "inch",
+  "precipitation": "inch",
+  "wind_speed_10m": "mp/h",
+  "wind_gusts_10m": "mp/h",
+  "weather_code": "wmo code",
+  "snow_depth": "ft"
+ },
+ "current": {
+  "time": "2026-10-13T07:45",
+  "interval": 900,
+  "temperature_2m": 59.8,
+  "is_day": 1,
+  "snowfall": 0.0,
+  "precipitation": 0.0,
+  "wind_speed_10m": 2.5,
+  "wind_gusts_10m": 9.4,
+  "weather_code": 3,
+  "snow_depth": 0.0
+ },
+ "daily_units": {
+  "time": "iso8601",
+  "weather_code": "wmo code",
+  "snowfall_sum": "inch",
+  "precipitation_sum": "inch",
+  "temperature_2m_max": "\u00b0F",
+  "temperature_2m_min": "\u00b0F"
+ },
+ "daily": {
+  "time": [
+   "2026-10-13",
+   "2026-10-14",
+   "2026-10-15",
+   "2026-10-16",
+   "2026-10-17",
+   "2026-10-18",
+   "2026-10-19"
+  ],
+  "weather_code": [
+   51,
+   81,
+   51,
+   53,
+   51,
+   55,
+   55
+  ],
+  "snowfall_sum": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "precipitation_sum": [
+   0.039,
+   0.535,
+   0.094,
+   0.106,
+   0.004,
+   0.106,
+   0.402
+  ],
+  "temperature_2m_max": [
+   65.4,
+   66.0,
+   55.4,
+   56.6,
+   55.2,
+   56.3,
+   62.3
+  ],
+  "temperature_2m_min": [
+   53.6,
+   46.9,
+   41.7,
+   45.0,
+   41.4,
+   35.4,
+   46.1
+  ]
+ }
+}

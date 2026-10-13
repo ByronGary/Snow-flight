@@ -14,19 +14,48 @@ spec:
       labels:
         app: snow-flights
     spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
       containers:
         - name: snow-flights
-          image: your-registry/snow-flights:latest
-          imagePullPolicy: IfNotPresent
+          image: snow-flights   # tag set by kustomization.yaml `images:`
           ports:
-            - containerPort: 8000
+            - name: http
+              containerPort: 8000
+          env:
+            - name: SNOW_FLIGHTS_CACHE_DIR
+              value: /tmp/cache
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 20
           resources:
             requests:
               cpu: "100m"
               memory: "128Mi"
             limits:
-              cpu: "250m"
+              cpu: "500m"
               memory: "256Mi"
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir: {}
 ---
 apiVersion: v1
 kind: Service
@@ -40,5 +69,5 @@ spec:
     app: snow-flights
   ports:
     - port: 80
-      targetPort: 8000
+      targetPort: http
       protocol: TCP

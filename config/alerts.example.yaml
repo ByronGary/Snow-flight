@@ -1,0 +1,35 @@
+# Powder alerts: run daily, post to Discord when a watched resort's forecast hits a threshold.
+#   python -m snow_flights alerts --config config/alerts.example.yaml --dry-run
+# Resort slugs are listed by GET /api/resorts (e.g. "alta-ski-area", "vail", "val-d-isere").
+
+home:
+  # Airports to fly from. If omitted, the airports near `zip` are used.
+  airports: [JFK, LGA, EWR]
+  zip: "10001"
+  radius_mi: 50
+
+powder:
+  window_days: 5        # forecast days to check, including today (resort-local days)
+  min_daily_in: 6       # alert if any single day forecasts at least this many inches
+  min_total_in: 12      # ...or if the whole window adds up to at least this (null to disable)
+
+trip:
+  depart_days_before: 1 # fly in the day before the first big day (never earlier than today)
+  nights: 3
+
+resorts:
+  - alta-ski-area
+  - snowbird
+  - jackson-hole
+  - { slug: big-sky-resort, min_daily_in: 8 }   # per-resort override
+  - vail
+
+notify:
+  send_when_empty: false   # true = also post "no powder" days
+  discord:
+    enabled: true
+    webhook_env: DISCORD_WEBHOOK_URL   # env var holding the webhook URL (keep it secret)
+    username: Snow Flights
+
+# Public URL of the web app; adds a deep link to each alert. null to omit.
+app_url: null

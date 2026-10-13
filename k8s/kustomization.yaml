@@ -1,0 +1,16 @@
+# kubectl apply -k k8s/
+# Create the webhook Secret once (not committed):
+#   kubectl create secret generic snow-flights-discord --from-literal=DISCORD_WEBHOOK_URL='https://discord.com/api/webhooks/...'
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - deployment.yaml
+  - cronjob-alerts.yaml
+configMapGenerator:
+  - name: snow-flights-alerts
+    files:
+      - alerts.yaml
+images:
+  - name: snow-flights
+    newName: your-registry/snow-flights
+    newTag: "0.2.0"   # use an immutable tag, e.g. the git SHA

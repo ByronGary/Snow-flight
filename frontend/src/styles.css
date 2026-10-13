@@ -1,0 +1,689 @@
+:root {
+  --bg: #f0f4f8;
+  --surface: #ffffff;
+  --surface-2: #e8f0fe;
+  --surface-3: #d0e8ff;
+  --text: #1f2933;
+  --muted: #5f6b7a;
+  --primary: #1a3a5c;
+  --primary-hover: #0f2540;
+  --on-primary: #ffffff;
+  --border: #b6c2cf;
+  --row-alt: #f7f9fb;
+  --powder: #e3f2ff;
+  --error: #b42318;
+  --notice: #8a5a00;
+  --focus: #3b82f6;
+  /* Chart mark (dataviz reference blue, validated vs --surface in each mode). */
+  --bar: #2a78d6;
+  --shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1720;
+    --surface: #17212d;
+    --surface-2: #1e2c3b;
+    --surface-3: #22384f;
+    --text: #e6edf3;
+    --muted: #9aa8b6;
+    --primary: #7cb4ec;
+    --primary-hover: #a3cbf3;
+    --on-primary: #0f1720;
+    --border: #3a4a5c;
+    --row-alt: #1b2633;
+    --powder: #1d3a56;
+    --error: #ff8a80;
+    --notice: #f5c46b;
+    --shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    --bar: #3987e5;
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+}
+
+#root {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+a {
+  color: var(--primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.error {
+  color: var(--error);
+  margin: 4px 0;
+}
+
+.notice {
+  color: var(--notice);
+  margin: 4px 0;
+}
+
+/* ── Header ── */
+.site-header h1 {
+  color: var(--primary);
+  font-size: 1.7rem;
+  margin: 0;
+}
+
+.tagline {
+  margin: 2px 0 18px;
+  color: var(--muted);
+}
+
+.site-footer {
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+
+.card h2 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.card h2 .conditions {
+  font-weight: 500;
+}
+
+.card h3 {
+  margin: 0 0 12px;
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+.subtitle {
+  margin: 2px 0 14px;
+  font-size: 0.85rem;
+}
+
+.footnote {
+  font-size: 0.75rem;
+  margin: 10px 0 0;
+}
+
+.empty {
+  text-align: center;
+  padding: 24px 0;
+}
+
+/* ── Form controls ── */
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.search-top,
+.search-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 140px;
+  min-width: 0;
+}
+
+.field-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0;
+}
+
+.text-input,
+.select-input {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.text-input[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.field-status {
+  font-size: 0.85rem;
+  min-height: 0;
+}
+
+.field-status p {
+  margin: 6px 0 0;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+/* Pass toggle */
+.pass-toggle {
+  display: flex;
+}
+
+.pass-btn input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.pass-btn span {
+  display: block;
+  padding: 10px 0;
+  width: 110px;
+  text-align: center;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  background: var(--surface);
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.pass-btn:first-of-type span {
+  border-radius: 6px 0 0 6px;
+}
+
+.pass-btn:last-of-type span {
+  border-radius: 0 6px 6px 0;
+  border-left: none;
+}
+
+.pass-btn input:checked + span {
+  background: var(--primary);
+  color: var(--on-primary);
+  border-color: var(--primary);
+}
+
+.pass-btn input:focus-visible + span {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Resort combobox */
+.combobox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.combobox-control {
+  display: flex;
+}
+
+.combobox-control .text-input {
+  border-radius: 6px 0 0 6px;
+}
+
+.combobox-toggle {
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.combobox-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  max-height: 320px;
+  overflow-y: auto;
+  background: var(--surface);
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+.combobox-menu.open {
+  display: block;
+}
+
+.combobox-item,
+.combobox-empty {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+
+.combobox-item .muted {
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+.combobox-item.highlighted {
+  background: var(--surface-2);
+}
+
+.combobox-item.selected {
+  font-weight: 600;
+}
+
+.combobox-empty {
+  color: var(--muted);
+  cursor: default;
+}
+
+/* Airport chips */
+.airport-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.airport-chips {
+  margin-top: 10px;
+}
+
+.airport-chips legend {
+  margin-bottom: 6px;
+}
+
+.airport-chips legend .muted {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.chip:has(input:not(:checked)) {
+  background: var(--surface);
+  opacity: 0.7;
+}
+
+/* ── Stats ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.stat {
+  background: var(--surface-2);
+  border-radius: 8px;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+.stat .value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.stat .unit {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.stat .label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.stat.highlight {
+  background: var(--surface-3);
+}
+
+/* ── Tables ── */
+.table-wrap {
+  /* position: relative keeps absolutely positioned children (visually-hidden labels) inside the scroll box. */
+  position: relative;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 420px;
+}
+
+th {
+  background: var(--primary);
+  color: var(--on-primary);
+  padding: 9px 12px;
+  text-align: left;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--row-alt);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+tr:nth-child(even) td {
+  background: var(--row-alt);
+}
+
+tr.powder td {
+  background: var(--powder);
+  font-weight: 600;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--primary);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ── Flights ── */
+.destination + .destination {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--row-alt);
+}
+
+.destination-name {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+}
+
+.destination-name .muted {
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+.flight-button {
+  display: inline-block;
+  padding: 11px 16px;
+  border-radius: 6px;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.flight-button:hover {
+  background: var(--primary-hover);
+}
+
+.origin-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+}
+
+.fallback {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 8px 0 0;
+}
+
+/* ── Powder board ── */
+.powder-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.powder-list.refreshing {
+  opacity: 0.5;
+  transition: opacity 0.15s;
+}
+
+.powder-item {
+  position: relative;
+}
+
+.powder-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 2fr) 3fr;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 36px;
+  padding: 4px 6px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.powder-row:hover,
+.powder-row:focus-visible {
+  background: var(--surface-2);
+}
+
+.powder-name {
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.powder-name .muted {
+  font-size: 0.78rem;
+}
+
+.powder-plot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* Thin bar from a square baseline to a 4px rounded data end. */
+.powder-bar {
+  display: block;
+  height: 12px;
+  max-width: calc(100% - 48px);
+  background: var(--bar);
+  border-radius: 0 4px 4px 0;
+}
+
+.powder-row:hover .powder-bar,
+.powder-row:focus-visible .powder-bar {
+  filter: brightness(1.15);
+}
+
+.powder-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.powder-tooltip {
+  position: absolute;
+  right: 6px;
+  bottom: calc(100% - 2px);
+  z-index: 5;
+  min-width: 150px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: var(--surface);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  font-size: 0.82rem;
+  pointer-events: none;
+}
+
+.powder-tooltip ul {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+}
+
+.powder-tooltip li {
+  display: flex;
+  gap: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.powder-tooltip li strong {
+  min-width: 3.2em;
+}
+
+/* Phones: name above its bar so long resort names aren't cut off. */
+@media (max-width: 479px) {
+  .powder-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    padding: 6px;
+  }
+}
+
+.powder-table {
+  margin-top: 12px;
+  font-size: 0.85rem;
+}
+
+.powder-table summary {
+  cursor: pointer;
+  color: var(--primary);
+}
+
+.powder-table table {
+  margin-top: 8px;
+  min-width: 520px;
+}
+
+.powder-table th[scope="row"] {
+  background: none;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.powder-table td {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 640px) {
+  .site-header h1 {
+    font-size: 2rem;
+  }
+
+  .search-top,
+  .search-bottom {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .search-bottom {
+    align-items: flex-start;
+  }
+
+  .search-bottom > .origin-search {
+    flex: 3;
+  }
+
+  .search-bottom > .field-row {
+    flex: 2;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .stat .value {
+    font-size: 1.5rem;
+  }
+}

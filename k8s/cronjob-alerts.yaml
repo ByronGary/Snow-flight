@@ -1,0 +1,65 @@
+# Daily powder digest to Discord. Test a run now with:
+#   kubectl create job --from=cronjob/snow-flights-powder-alerts powder-test
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: snow-flights-powder-alerts
+  labels:
+    app: snow-flights
+spec:
+  schedule: "0 6 * * *"
+  timeZone: "America/Denver"
+  concurrencyPolicy: Forbid
+  startingDeadlineSeconds: 3600
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 1
+      activeDeadlineSeconds: 300
+      ttlSecondsAfterFinished: 86400
+      template:
+        metadata:
+          labels:
+            app: snow-flights-alerts
+        spec:
+          restartPolicy: Never
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            runAsGroup: 10001
+          containers:
+            - name: alerts
+              image: snow-flights   # tag set by kustomization.yaml `images:`
+              command: ["python", "-m", "snow_flights", "alerts", "--config", "/config/alerts.yaml"]
+              env:
+                - name: DISCORD_WEBHOOK_URL
+                  valueFrom:
+                    secretKeyRef:
+                      name: snow-flights-discord
+                      key: DISCORD_WEBHOOK_URL
+                - name: SNOW_FLIGHTS_CACHE_DIR
+                  value: /tmp/cache
+              resources:
+                requests:
+                  cpu: "50m"
+                  memory: "128Mi"
+                limits:
+                  memory: "256Mi"
+              securityContext:
+                allowPrivilegeEscalation: false
+                readOnlyRootFilesystem: true
+                capabilities:
+                  drop: ["ALL"]
+              volumeMounts:
+                - name: config
+                  mountPath: /config
+                  readOnly: true
+                - name: tmp
+                  mountPath: /tmp
+          volumes:
+            - name: config
+              configMap:
+                name: snow-flights-alerts
+            - name: tmp
+              emptyDir: {}

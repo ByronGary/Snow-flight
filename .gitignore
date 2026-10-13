@@ -2,21 +2,36 @@
 __pycache__/
 *.py[cod]
 *.egg-info/
-dist/
+*.egg
 build/
+dist/
 .venv/
 venv/
-*.egg
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 
-# Cache
-.cache.sqlite
+# Runtime caches (Open-Meteo HTTP cache)
 .cache/
 *.sqlite
 
-# Environment
+# Secrets: the Discord webhook URL belongs in an env var or a k8s Secret, never in git
 .env
 .env.*
+!.env.example
+k8s/secret.yaml
 
+# Frontend
+node_modules/
+frontend/dist/
+frontend/test-results/
+frontend/playwright-report/
+frontend/blob-report/
+*.tsbuildinfo
+
+# Logs
+*.log
 
 # IDE
 .vscode/

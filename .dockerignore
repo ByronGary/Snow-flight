@@ -1,0 +1,15 @@
+.git
+.venv
+.cache
+*.sqlite
+**/__pycache__
+**/node_modules
+frontend/dist
+tests
+config
+k8s
+.claude
+.vscode
+.idea
+frontend/test-results
+frontend/playwright-report
