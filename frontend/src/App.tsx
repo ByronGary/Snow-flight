@@ -3,6 +3,7 @@ import { query } from "./api/client";
 import type { FlightLinks, NearbyAirports, PassType, PowderBoard as Board, Resort, Weather } from "./api/types";
 import { FlightsPanel } from "./components/FlightsPanel";
 import { ForecastTable } from "./components/ForecastTable";
+import { InstallHint } from "./components/InstallHint";
 import { OriginSearch } from "./components/OriginSearch";
 import { PassToggle } from "./components/PassToggle";
 import { PowderBoard } from "./components/PowderBoard";
@@ -77,6 +78,7 @@ export function App() {
         <h1>Snow Flights</h1>
         <p className="tagline">Forecasts and flights for Ikon and Epic resorts</p>
       </header>
+      <InstallHint />
       <main>
         <section className="card search" aria-label="Search">
           <div className="search-top">

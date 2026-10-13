@@ -68,6 +68,7 @@ def static_dir(tmp_path):
                                   'src="/assets/index.js"></script>')
     (d / "assets" / "index.js").write_text("console.log('hi')")
     (d / "favicon.svg").write_text("<svg/>")
+    (d / "manifest.webmanifest").write_text('{"name": "Snow Flights", "display": "standalone"}')
     return d
 
 

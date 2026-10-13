@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import mimetypes
 import os
 from pathlib import Path
 
@@ -12,6 +13,9 @@ from .api import api, error_response
 from .weather import WeatherClient
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+
+# Not in Python's default table; iOS/Android read the manifest to install the app.
+mimetypes.add_type("application/manifest+json", ".webmanifest")
 
 CONTENT_SECURITY_POLICY = (
     "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; "

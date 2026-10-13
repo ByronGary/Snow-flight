@@ -175,6 +175,24 @@ def test_static_assets(client):
     assert client.get("/assets/missing.js").status_code == 404
 
 
+def test_web_app_manifest(client):
+    resp = client.get("/manifest.webmanifest")
+    assert resp.status_code == 200
+    assert resp.mimetype == "application/manifest+json"
+    assert resp.get_json(force=True)["display"] == "standalone"
+
+
+def test_real_manifest_icons_exist():
+    from pathlib import Path
+
+    public = Path(__file__).parents[1] / "frontend" / "public"
+    manifest = json.loads((public / "manifest.webmanifest").read_text())
+    assert manifest["display"] == "standalone" and manifest["start_url"] == "/"
+    for icon in manifest["icons"]:
+        assert (public / icon["src"].lstrip("/")).is_file(), icon["src"]
+    assert (public / "apple-touch-icon.png").is_file()
+
+
 def test_old_form_redirects_home(client):
     resp = client.post("/submit", data={"resort": "Vail"})
     assert resp.status_code == 303 and resp.headers["Location"] == "/"

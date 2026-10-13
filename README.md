@@ -24,6 +24,15 @@ make dev                # React UI with hot reload: http://localhost:5173
 
 To use a different API port, pass `API_PORT`, e.g. `make dev API_PORT=8020`.
 
+## Use it on your iPhone (no App Store)
+
+The web app can be installed from Safari, so you don't need the App Store, Xcode or a developer account:
+
+1. Open the hosted site in **Safari** on the iPhone. It needs to be on an HTTPS address the phone can reach.
+2. Tap **Share**, then **Add to Home Screen**.
+
+It gets the snowflake icon and opens full screen, like a native app. Safari also shows a short hint about this, which you can dismiss. The install support comes from `frontend/public/manifest.webmanifest`, the PNG icons beside it, and the Apple meta tags in `frontend/index.html`.
+
 ## Tests
 
 ```bash
