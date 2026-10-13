@@ -172,6 +172,7 @@ def test_discord_payload_shape():
     flights_field = embed["fields"][1]
     assert "/travel/flights/search?tfs=" in flights_field["value"]
     assert all(len(f["value"]) <= MAX_FIELD_CHARS for f in embed["fields"])
+    assert "Open-Meteo.com" in embed["footer"]["text"]  # CC BY 4.0 attribution
 
 
 def test_discord_batches_embeds():

@@ -78,7 +78,7 @@ test("pass toggle switches between 57 Ikon and 42 Epic resorts", async ({ page }
   await input.click();
   await expect(page.getByRole("listbox").getByRole("option")).toHaveCount(57);
   await page.keyboard.press("Escape");
-  await page.getByText("Epic Pass").click();
+  await page.getByText("Epic Pass", { exact: true }).click();
   await expect(input).toHaveAttribute("placeholder", "Search 42 Epic resorts…");
   await input.click();
   await expect(page.getByRole("listbox").getByRole("option")).toHaveCount(42);
@@ -86,7 +86,7 @@ test("pass toggle switches between 57 Ikon and 42 Epic resorts", async ({ page }
 
 test("NYC to Vail builds one Google Flights search per arrival airport", async ({ page }) => {
   await page.goto("/");
-  await page.getByText("Epic Pass").click();
+  await page.getByText("Epic Pass", { exact: true }).click();
   await pickResort(page, "vail", /^Vail/);
   await page.getByLabel("Home ZIP").fill("10001-1234");
 
@@ -123,7 +123,7 @@ test("the powder board ranks resorts and opens one on click", async ({ page }) =
   await expect(bars.first()).toHaveAccessibleName('Snowbird: 21.5" forecast over 5 days');
   await bars.first().hover();
   await expect(page.getByRole("tooltip")).toContainText('21.5"');
-  await page.getByText("Epic Pass").click();
+  await page.getByText("Epic Pass", { exact: true }).click();
   await expect(bars.first()).toHaveAccessibleName(/^Vail:/);
   await bars.first().click();
   await expect(page.getByRole("heading", { name: /Vail/, level: 2 })).toBeVisible();
@@ -192,4 +192,16 @@ test.describe("iPhone home screen install", () => {
     await expect(page.getByRole("combobox", { name: "Resort" })).toBeVisible();
     await expect(hint).toHaveCount(0);
   });
+});
+
+test("bundled open-source licenses are published", async ({ page, request }) => {
+  await page.goto("/");
+  const link = page.getByRole("contentinfo").getByRole("link", { name: "Open-source licenses" });
+  await expect(link).toHaveAttribute("href", "/third-party-licenses.txt");
+  const resp = await request.get("/third-party-licenses.txt");
+  expect(resp.status()).toBe(200);
+  expect(resp.headers()["content-type"]).toContain("text/plain");
+  const text = await resp.text();
+  for (const pkg of ["react", "react-dom", "downshift"]) expect(text).toContain(`## ${pkg} - `);
+  expect(text).toContain("MIT License");
 });

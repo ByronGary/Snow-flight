@@ -203,4 +203,10 @@ python scripts/build_zip_centroids.py
 
 ## License
 
-MIT
+Snow Flights is [MIT licensed](LICENSE).
+
+The data and libraries it uses carry their own licenses, listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Two of them require visible credit, which the app's footer and the Discord alerts provide:
+- Open-Meteo weather data (CC BY 4.0). Its free API is for non-commercial use only.
+- GeoNames ZIP data (CC BY 4.0).
+
+The full license texts of the bundled JavaScript dependencies are generated at build time and served at `/third-party-licenses.txt`.

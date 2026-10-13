@@ -141,7 +141,16 @@ export function App() {
         )}
       </main>
       <footer className="site-footer muted">
-        Weather from Open-Meteo. Flight searches open in Google Flights.
+        <p>
+          Weather data by <a href="https://open-meteo.com/">Open-Meteo.com</a>. ZIP code locations from{" "}
+          <a href="https://www.geonames.org/">GeoNames</a>, modified. Both are licensed{" "}
+          <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Airports from{" "}
+          <a href="https://ourairports.com/data/">OurAirports</a> (public domain). Flight searches open in Google
+          Flights.
+        </p>
+        <p>
+          <a href="/third-party-licenses.txt">Open-source licenses</a> · Not affiliated with Ikon Pass or Epic Pass.
+        </p>
       </footer>
     </>
   );
