@@ -1,4 +1,4 @@
-"""Commercial airports (OurAirports data) and ZIP code lookup."""
+"""Commercial airports (OurAirports data) and US ZIP code lookup (GeoNames centroids)."""
 
 from __future__ import annotations
 
@@ -12,6 +12,8 @@ from pathlib import Path
 from .data import DATA_DIR, Resort
 
 AIRPORTS_PATH = DATA_DIR / "airports.csv"
+# Built by scripts/build_zip_centroids.py from GeoNames (CC BY 4.0).
+ZIP_CENTROIDS_PATH = DATA_DIR / "us_zip_centroids.csv"
 
 # OurAirports flags these as having scheduled service, but they are general-aviation
 # or business-jet fields with no meaningful airline service for a ski trip.
@@ -140,20 +142,21 @@ def normalize_zip(raw: str) -> str:
 
 
 @functools.lru_cache(maxsize=1)
-def _nominatim():
-    import pgeocode  # imported lazily: it loads (and on first use downloads) GeoNames data
+def _zip_centroids() -> dict[str, tuple[str, float, float]]:
+    """ZIP -> (place, lat, lon), loaded on first lookup (~41k rows)."""
+    with open(ZIP_CENTROIDS_PATH, encoding="utf-8", newline="") as f:
+        return {
+            row["zip"]: (", ".join(p for p in (row["place"], row["state"]) if p), float(row["lat"]), float(row["lon"]))
+            for row in csv.DictReader(f)
+        }
 
-    return pgeocode.Nominatim("us")
 
-
-@functools.lru_cache(maxsize=2048)
 def lookup_zip(zip5: str) -> ZipLocation:
-    result = _nominatim().query_postal_code(zip5)
-    lat, lon = result["latitude"], result["longitude"]
-    if lat != lat or lon != lon:  # NaN
-        raise ZipNotFound(f"ZIP code {zip5} was not found.")
-    place = ", ".join(p for p in (result["place_name"], result["state_code"]) if isinstance(p, str))
-    return ZipLocation(zip=zip5, place=place, lat=float(lat), lon=float(lon))
+    try:
+        place, lat, lon = _zip_centroids()[zip5]
+    except KeyError:
+        raise ZipNotFound(f"ZIP code {zip5} was not found.") from None
+    return ZipLocation(zip=zip5, place=place, lat=lat, lon=lon)
 
 
 def airports_near(lat: float, lon: float, radius_mi: int = DEFAULT_RADIUS_MI,

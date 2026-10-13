@@ -119,5 +119,14 @@ def test_origin_airports_are_us_commercial_only():
     assert not {a.iata for a in ORIGIN_AIRPORTS} & ORIGIN_DENYLIST
 
 
+def test_zip_centroids_are_bundled():
+    from snow_flights.airports import _zip_centroids
+
+    zips = _zip_centroids()
+    assert len(zips) > 40_000
+    assert zips["80302"] == ("Boulder, CO", 40.0172, -105.2851)
+    assert all(len(z) == 5 and z.isdigit() for z in zips)
+
+
 def test_small_destination_airports_still_known():
     assert AIRPORTS["MMH"].size == "small"  # Mammoth: valid destination, not a home airport

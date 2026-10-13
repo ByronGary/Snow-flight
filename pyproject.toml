@@ -11,7 +11,6 @@ pythonpath = ["src"]
 testpaths = ["tests"]
 addopts = "-m 'not network'"
 markers = ["network: talks to real external services (run with -m network)"]
-filterwarnings = ["ignore::UserWarning:pgeocode"]
 
 [tool.ruff]
 line-length = 120

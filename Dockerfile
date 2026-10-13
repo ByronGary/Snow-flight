@@ -16,15 +16,12 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
     PYTHONPATH=/app/src \
-    PGEOCODE_DATA_DIR=/app/pgeocode \
     SNOW_FLIGHTS_STATIC_DIR=/app/static \
     SNOW_FLIGHTS_CACHE_DIR=/tmp/cache
 WORKDIR /app
 
 COPY requirements.txt .
-# Bake the GeoNames ZIP data into the image so pods don't download it on start.
-RUN pip install -r requirements.txt \
-    && python -c "import pgeocode; pgeocode.Nominatim('us')"
+RUN pip install -r requirements.txt
 
 COPY src/ ./src/
 COPY --from=web /repo/frontend/dist ./static

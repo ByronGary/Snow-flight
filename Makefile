@@ -32,7 +32,7 @@ test-network:  ## live check that Google Flights still renders our links
 	$(PY) -m pytest -m network
 
 lint:
-	$(PY) -m ruff check src tests
+	$(PY) -m ruff check src tests scripts
 	cd frontend && npm run typecheck
 
 alerts-dry-run:

@@ -66,7 +66,7 @@ Lookup rules:
 - The default radius is 50 miles; the UI also offers 25 and 100.
 - Large airports are ranked before medium ones, and the closest 5 are shown.
 - If none are in range, the nearest 3 within 250 miles are shown instead.
-- ZIP+4 codes are accepted.
+- ZIP+4 codes are accepted. ZIPs are looked up in a bundled file of US ZIP centroids (see [Data sources](#data-sources)), so nothing is downloaded at runtime.
 
 ## API
 
@@ -98,7 +98,7 @@ Alert behaviour:
 - Nothing is sent when no resort crosses its threshold, unless `send_when_empty: true`.
 - Exit codes: `0` OK, `2` config error, `3` weather unavailable, `4` Discord failed.
 
-The notifier interface (`Notifier` in [src/snow_flights/alerts/notifiers.py](src/snow_flights/alerts/notifiers.py)) is ready for an SMS backend later.
+The notifier interface (`Notifier` in [src/snow_flights/alerts/notifiers.py](src/snow_flights/alerts/notifiers.py)) is ready for an SMS backend; see the [roadmap](#roadmap).
 
 ## Deploy
 
@@ -111,7 +111,7 @@ kubectl apply -k k8s/
 kubectl create job --from=cronjob/snow-flights-powder-alerts powder-test   # try the alert job now
 ```
 
-The image is a two-stage build: Node builds the React app, then a Python 3.12 runtime runs gunicorn. The ZIP-code data is baked in, so the container runs as a non-root user with a read-only root filesystem.
+The image is a two-stage build: Node builds the React app, then a Python 3.12 runtime runs gunicorn. It's about 150 MB and uses about 115 MiB with two workers. All data files ship in the image, so the container runs as a non-root user with a read-only root filesystem.
 
 The k8s manifests define:
 - a 2-replica Deployment with health probes;
@@ -122,13 +122,44 @@ The k8s manifests define:
 
 ```
 src/snow_flights/   Flask app + API, flights/airports/weather modules, alerts package, data files
-frontend/           Vite + React + TypeScript UI
+frontend/           Vite + React + TypeScript UI (Vitest unit tests, Playwright e2e in frontend/e2e)
 tests/              pytest suite (fixtures are recorded Open-Meteo responses)
+scripts/            data builders (ZIP centroids)
 config/             example alert config
 k8s/                Deployment, Service, CronJob, kustomization
+.github/workflows/  CI and the weekly Google Flights canary
 ```
 
-Weather data: [Open-Meteo](https://open-meteo.com/) (free for non-commercial use). ZIP codes: GeoNames via pgeocode.
+## Data sources
+
+| Data | Source | License | File |
+|---|---|---|---|
+| Weather | [Open-Meteo](https://open-meteo.com/) forecast and archive APIs | CC BY 4.0, free for non-commercial use | fetched at runtime and cached |
+| Airports | [OurAirports](https://ourairports.com/data/) | Public domain | `src/snow_flights/data/airports.csv` |
+| US ZIP centroids | [GeoNames](https://www.geonames.org/) postal codes | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | `src/snow_flights/data/us_zip_centroids.csv` |
+| Resorts | curated for this project | MIT | `src/snow_flights/data/{ikon,epic}_resorts.json` |
+
+The ZIP file covers 41,488 US ZIP codes: the 50 states, DC, military APO/FPO codes and a few Marshall Islands codes. Puerto Rico and other territories aren't included. To refresh it from GeoNames:
+
+```bash
+python scripts/build_zip_centroids.py
+```
+
+## Roadmap
+
+**SMS alerts**
+- Add a Twilio notifier next to `DiscordNotifier` that sends `render_text()`.
+- Link to the web app (`app_url`) rather than raw Google Flights links: each `tfs` URL is 150+ characters, which uses up SMS segments.
+- US numbers need A2P 10DLC or toll-free verification before Twilio will deliver. Approval can take days, so start that early.
+
+**iOS app on the Apple App Store**
+- Package the existing React app with Capacitor, or rewrite it in React Native if it needs more native features.
+- Add native value so it doesn't get rejected as a plain website wrapper (App Review guideline 4.2):
+  - push notifications for powder alerts, replacing or adding to Discord/SMS;
+  - a home-screen widget showing the powder board;
+  - home airports from the device's location instead of a ZIP code.
+- Host the API publicly over HTTPS. The app needs a configurable API base URL (the web app uses relative `/api` paths), plus CORS and CSP `connect-src` entries for the app's origin.
+- Needs an Apple Developer Program membership ($99/year), App Store privacy labels (location, if used), and APNs keys for push.
 
 ## License
 
