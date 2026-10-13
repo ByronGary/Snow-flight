@@ -1,422 +1,557 @@
 [
   {
+    "slug": "vail",
     "name": "Vail",
     "latitude": 39.6433,
     "longitude": -106.3781,
     "country": "US",
     "state": "CO",
-    "airport": "EGE",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "EGE",
+      "DEN"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "breckenridge",
     "name": "Breckenridge",
     "latitude": 39.4817,
     "longitude": -106.0384,
     "country": "US",
     "state": "CO",
-    "airport": "DEN",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "DEN",
+      "EGE"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "keystone",
     "name": "Keystone",
     "latitude": 39.6069,
     "longitude": -105.9678,
     "country": "US",
     "state": "CO",
-    "airport": "DEN",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "DEN",
+      "EGE"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "beaver-creek",
     "name": "Beaver Creek",
     "latitude": 39.6042,
     "longitude": -106.5165,
     "country": "US",
     "state": "CO",
-    "airport": "EGE",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "EGE",
+      "DEN"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "telluride",
     "name": "Telluride",
     "latitude": 37.9363,
     "longitude": -107.8123,
     "country": "US",
     "state": "CO",
-    "airport": "MTJ",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "MTJ",
+      "DRO"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "crested-butte",
     "name": "Crested Butte",
     "latitude": 38.8697,
     "longitude": -106.9878,
     "country": "US",
     "state": "CO",
-    "airport": "GUC",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "GUC",
+      "MTJ"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "park-city",
     "name": "Park City",
     "latitude": 40.6514,
     "longitude": -111.508,
     "country": "US",
     "state": "UT",
-    "airport": "SLC",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "SLC"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "snowbasin",
     "name": "Snowbasin",
     "latitude": 41.2163,
     "longitude": -111.8571,
     "country": "US",
     "state": "UT",
-    "airport": "SLC",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "SLC"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "heavenly",
     "name": "Heavenly",
     "latitude": 38.9352,
     "longitude": -119.94,
     "country": "US",
     "state": "CA",
-    "airport": "RNO",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "RNO",
+      "SMF"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "northstar",
     "name": "Northstar",
     "latitude": 39.2746,
     "longitude": -120.1211,
     "country": "US",
     "state": "CA",
-    "airport": "RNO",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "RNO",
+      "SMF"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "kirkwood",
     "name": "Kirkwood",
     "latitude": 38.6841,
     "longitude": -120.0655,
     "country": "US",
     "state": "CA",
-    "airport": "RNO",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "RNO",
+      "SMF"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "sun-valley",
     "name": "Sun Valley",
     "latitude": 43.6958,
     "longitude": -114.3519,
     "country": "US",
     "state": "ID",
-    "airport": "SUN",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "SUN",
+      "BOI"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "stevens-pass",
     "name": "Stevens Pass",
     "latitude": 47.7445,
     "longitude": -121.0884,
     "country": "US",
     "state": "WA",
-    "airport": "SEA",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "SEA",
+      "PAE"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "stowe",
     "name": "Stowe",
     "latitude": 44.5301,
     "longitude": -72.7823,
     "country": "US",
     "state": "VT",
-    "airport": "BTV",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "BTV"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "okemo",
     "name": "Okemo",
     "latitude": 43.4075,
     "longitude": -72.7219,
     "country": "US",
     "state": "VT",
-    "airport": "BTV",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "ALB",
+      "BTV",
+      "BOS"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "mount-snow",
     "name": "Mount Snow",
     "latitude": 42.9637,
     "longitude": -72.9222,
     "country": "US",
     "state": "VT",
-    "airport": "ALB",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "ALB",
+      "BDL",
+      "BOS"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "hunter-mountain",
     "name": "Hunter Mountain",
     "latitude": 42.1789,
     "longitude": -74.2275,
     "country": "US",
     "state": "NY",
-    "airport": "ALB",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "ALB"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "attitash",
     "name": "Attitash",
     "latitude": 44.0809,
     "longitude": -71.2313,
     "country": "US",
     "state": "NH",
-    "airport": "MHT",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "PWM",
+      "MHT",
+      "BOS"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "wildcat-mountain",
     "name": "Wildcat Mountain",
     "latitude": 44.2567,
     "longitude": -71.2371,
     "country": "US",
     "state": "NH",
-    "airport": "MHT",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "PWM",
+      "MHT",
+      "BOS"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "crotched-mountain",
     "name": "Crotched Mountain",
     "latitude": 43.0003,
     "longitude": -71.8803,
     "country": "US",
     "state": "NH",
-    "airport": "MHT",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "MHT",
+      "BOS"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "liberty-mountain",
     "name": "Liberty Mountain",
     "latitude": 39.8269,
     "longitude": -77.3539,
     "country": "US",
     "state": "PA",
-    "airport": "MDT",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "MDT",
+      "BWI",
+      "IAD"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "roundtop-mountain",
     "name": "Roundtop Mountain",
     "latitude": 40.1542,
     "longitude": -77.2503,
     "country": "US",
     "state": "PA",
-    "airport": "MDT",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "MDT",
+      "BWI"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "whitetail-resort",
     "name": "Whitetail Resort",
     "latitude": 39.7492,
     "longitude": -77.5889,
     "country": "US",
     "state": "PA",
-    "airport": "IAD",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "IAD",
+      "BWI",
+      "DCA"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "afton-alps",
     "name": "Afton Alps",
     "latitude": 44.845,
     "longitude": -92.7906,
     "country": "US",
     "state": "MN",
-    "airport": "MSP",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "MSP"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "mt-brighton",
     "name": "Mt. Brighton",
     "latitude": 42.5472,
     "longitude": -83.7894,
     "country": "US",
     "state": "MI",
-    "airport": "DTW",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "DTW",
+      "FNT"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "wilmot-mountain",
     "name": "Wilmot Mountain",
     "latitude": 42.5156,
     "longitude": -88.2006,
     "country": "US",
     "state": "WI",
-    "airport": "ORD",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "ORD",
+      "MKE",
+      "MDW"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "whistler-blackcomb",
     "name": "Whistler Blackcomb",
     "latitude": 50.115,
     "longitude": -122.9486,
     "country": "CA",
     "province": "BC",
-    "airport": "YVR",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "YVR"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "perisher",
     "name": "Perisher",
     "latitude": -36.4078,
     "longitude": 148.4114,
     "country": "AU",
     "province": "NSW",
-    "airport": "CBR",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "CBR",
+      "SYD"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "whakapapa-mt-ruapehu",
     "name": "Whakapapa (Mt. Ruapehu)",
     "latitude": -39.2335,
     "longitude": 175.5585,
     "country": "NZ",
     "province": "Waikato",
-    "airport": "ROT",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "TUO",
+      "ROT",
+      "AKL"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "turoa-mt-ruapehu",
     "name": "Turoa (Mt. Ruapehu)",
     "latitude": -39.3177,
     "longitude": 175.5014,
     "country": "NZ",
     "province": "Manawatu",
-    "airport": "WLG",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "TUO",
+      "PMR",
+      "WLG"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "andermatt-sedrun",
     "name": "Andermatt-Sedrun",
     "latitude": 46.6367,
     "longitude": 8.594,
     "country": "CH",
     "province": "Uri",
-    "airport": "ZRH",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "ZRH"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "crans-montana",
     "name": "Crans-Montana",
     "latitude": 46.3123,
     "longitude": 7.4756,
     "country": "CH",
     "province": "Valais",
-    "airport": "GVA",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "GVA",
+      "ZRH"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "courchevel",
     "name": "Courchevel",
     "latitude": 45.4127,
     "longitude": 6.634,
     "country": "FR",
     "province": "Savoie",
-    "airport": "GVA",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "GVA",
+      "LYS",
+      "CMF"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "meribel",
     "name": "M\u00e9ribel",
     "latitude": 45.4016,
     "longitude": 6.5688,
     "country": "FR",
     "province": "Savoie",
-    "airport": "GVA",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "GVA",
+      "LYS",
+      "CMF"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "val-thorens",
     "name": "Val Thorens",
     "latitude": 45.2979,
     "longitude": 6.5796,
     "country": "FR",
     "province": "Savoie",
-    "airport": "GVA",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "GVA",
+      "LYS",
+      "CMF"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "val-d-isere",
     "name": "Val d'Is\u00e8re",
     "latitude": 45.4474,
     "longitude": 6.979,
     "country": "FR",
     "province": "Savoie",
-    "airport": "GVA",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "GVA",
+      "LYS",
+      "CMF"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "tignes",
     "name": "Tignes",
     "latitude": 45.4693,
     "longitude": 6.9068,
     "country": "FR",
     "province": "Savoie",
-    "airport": "GVA",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "GVA",
+      "LYS",
+      "CMF"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "les-arcs",
     "name": "Les Arcs",
     "latitude": 45.5622,
     "longitude": 6.8129,
     "country": "FR",
     "province": "Savoie",
-    "airport": "GVA",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "GVA",
+      "LYS",
+      "CMF"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "la-plagne",
     "name": "La Plagne",
     "latitude": 45.5096,
     "longitude": 6.6742,
     "country": "FR",
     "province": "Savoie",
-    "airport": "GVA",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "GVA",
+      "LYS",
+      "CMF"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "morzine-avoriaz",
     "name": "Morzine\u2013Avoriaz",
     "latitude": 46.1778,
     "longitude": 6.7125,
     "country": "FR",
     "province": "Haute-Savoie",
-    "airport": "GVA",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "GVA"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "dolomiti-superski",
     "name": "Dolomiti Superski",
     "latitude": 46.5363,
     "longitude": 12.1359,
     "country": "IT",
     "province": "South Tyrol",
-    "airport": "VCE",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "VCE",
+      "INN",
+      "VRN"
+    ],
+    "pass": "epic"
   },
   {
+    "slug": "st-anton-arlberg",
     "name": "St. Anton (Arlberg)",
     "latitude": 47.1284,
     "longitude": 10.2688,
     "country": "AT",
     "province": "Tyrol",
-    "airport": "INN",
-    "pass": "epic",
-    "conditions_id": null
+    "airports": [
+      "INN",
+      "ZRH"
+    ],
+    "pass": "epic"
   }
 ]

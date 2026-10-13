@@ -1,0 +1,121 @@
+[
+ {
+  "latitude": 40.615543,
+  "longitude": -111.6266,
+  "generationtime_ms": 0.17213821411132812,
+  "utc_offset_seconds": -21600,
+  "timezone": "America/Denver",
+  "timezone_abbreviation": "GMT-6",
+  "elevation": 2603.0,
+  "current_units": {
+   "time": "iso8601",
+   "interval": "seconds",
+   "weather_code": "wmo code"
+  },
+  "current": {
+   "time": "2026-10-12T16:45",
+   "interval": 900,
+   "weather_code": 73
+  },
+  "daily_units": {
+   "time": "iso8601",
+   "snowfall_sum": "inch"
+  },
+  "daily": {
+   "time": [
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16"
+   ],
+   "snowfall_sum": [
+    3.638,
+    1.957,
+    1.516,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ {
+  "latitude": 39.65108,
+  "longitude": -106.38379,
+  "generationtime_ms": 0.1919269561767578,
+  "utc_offset_seconds": -21600,
+  "timezone": "America/Denver",
+  "timezone_abbreviation": "GMT-6",
+  "elevation": 2494.0,
+  "location_id": 1,
+  "current_units": {
+   "time": "iso8601",
+   "interval": "seconds",
+   "weather_code": "wmo code"
+  },
+  "current": {
+   "time": "2026-10-12T16:45",
+   "interval": 900,
+   "weather_code": 1
+  },
+  "daily_units": {
+   "time": "iso8601",
+   "snowfall_sum": "inch"
+  },
+  "daily": {
+   "time": [
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16"
+   ],
+   "snowfall_sum": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ {
+  "latitude": 42.7768,
+  "longitude": 140.72485,
+  "generationtime_ms": 0.1239776611328125,
+  "utc_offset_seconds": 32400,
+  "timezone": "Asia/Tokyo",
+  "timezone_abbreviation": "GMT+9",
+  "elevation": 128.0,
+  "location_id": 2,
+  "current_units": {
+   "time": "iso8601",
+   "interval": "seconds",
+   "weather_code": "wmo code"
+  },
+  "current": {
+   "time": "2026-10-13T07:45",
+   "interval": 900,
+   "weather_code": 3
+  },
+  "daily_units": {
+   "time": "iso8601",
+   "snowfall_sum": "inch"
+  },
+  "daily": {
+   "time": [
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-17"
+   ],
+   "snowfall_sum": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ }
+]

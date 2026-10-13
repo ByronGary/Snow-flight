@@ -1,0 +1,97 @@
+{
+ "latitude": 40.615543,
+ "longitude": -111.6266,
+ "generationtime_ms": 0.9284019470214844,
+ "utc_offset_seconds": -21600,
+ "timezone": "America/Denver",
+ "timezone_abbreviation": "GMT-6",
+ "elevation": 2603.0,
+ "current_units": {
+  "time": "iso8601",
+  "interval": "seconds",
+  "temperature_2m": "\u00b0F",
+  "is_day": "",
+  "snowfall": "inch",
+  "precipitation": "inch",
+  "wind_speed_10m": "mp/h",
+  "wind_gusts_10m": "mp/h",
+  "weather_code": "wmo code",
+  "snow_depth": "ft"
+ },
+ "current": {
+  "time": "2026-10-12T16:45",
+  "interval": 900,
+  "temperature_2m": 40.6,
+  "is_day": 1,
+  "snowfall": 0.028,
+  "precipitation": 0.02,
+  "wind_speed_10m": 19.2,
+  "wind_gusts_10m": 32.9,
+  "weather_code": 73,
+  "snow_depth": 0.0
+ },
+ "daily_units": {
+  "time": "iso8601",
+  "weather_code": "wmo code",
+  "snowfall_sum": "inch",
+  "precipitation_sum": "inch",
+  "temperature_2m_max": "\u00b0F",
+  "temperature_2m_min": "\u00b0F"
+ },
+ "daily": {
+  "time": [
+   "2026-10-12",
+   "2026-10-13",
+   "2026-10-14",
+   "2026-10-15",
+   "2026-10-16",
+   "2026-10-17",
+   "2026-10-18"
+  ],
+  "weather_code": [
+   75,
+   75,
+   75,
+   0,
+   0,
+   0,
+   3
+  ],
+  "snowfall_sum": [
+   3.638,
+   1.957,
+   1.516,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "precipitation_sum": [
+   1.067,
+   0.382,
+   0.217,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "temperature_2m_max": [
+   41.3,
+   33.9,
+   35.7,
+   47.9,
+   54.2,
+   53.2,
+   51.9
+  ],
+  "temperature_2m_min": [
+   33.3,
+   27.6,
+   27.2,
+   27.5,
+   35.6,
+   38.5,
+   37.0
+  ]
+ }
+}
