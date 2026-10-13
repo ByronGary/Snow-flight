@@ -5,8 +5,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    // The Flask API from `make dev-api` (port 8000 unless API_PORT is set).
-    proxy: { "/api": `http://localhost:${process.env.API_PORT ?? "8000"}` },
+    // The Flask API from `make dev` / `make dev-api` (port 8010 unless API_PORT is set).
+    proxy: { "/api": `http://localhost:${process.env.API_PORT ?? "8010"}` },
   },
   build: {
     outDir: "dist",
